@@ -1,7 +1,10 @@
 <script>
+import { RouterLink } from 'vue-router';
+import ShowPage from '../pages/ShowPage.vue';
+
 export default {
   name: 'ProjectCard',
-  components: {},
+  components: { ShowPage },
   props: { project: Object },
   computed: {
     abstract() {
@@ -16,7 +19,12 @@ export default {
 
 <template>
   <div class="card">
-    <img :src="project.image" class="card-img-top" alt="...">
+    <div class=" d-flex justify-content-between p-2">
+      <img :src="project.image" class="card-img-top" alt="...">
+      <!-- <RouterLink :to="{ name: 'ShowPage', params: { id: project.id } }" class="btn btn-primary">Vedi</RouterLink> -->
+      <RouterLink v-if="project.id" :to="{ name: 'ShowPage', params: { id: project.id } }" class="btn btn-primary">Vedi
+      </RouterLink>
+    </div>
     <div class="card-body">
       <h5 class="card-title">{{ project.title }}</h5>
       <p class="card-text">{{ abstract }}</p>
