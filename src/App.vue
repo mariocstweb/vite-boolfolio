@@ -1,32 +1,15 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
-import ProjectsList from './components/ProjectsList.vue';
-import axios from 'axios';
-const endpoint = 'http://localhost:8000/api/projects/';
+import HomePage from './pages/HomePage.vue';
 export default {
   name: 'Boolfolio',
-  components: { AppHeader, ProjectsList },
-  data: () => ({ projects: [] }),
-  methods: {
-    fetchProject() {
-      axios.get(endpoint).then(res => {
-        // console.log(res.data)
-        this.projects = res.data;
-      })
-
-    }
-
-  },
-  created() {
-    this.fetchProject()
-  }
-
+  components: { AppHeader, HomePage },
 }
 </script>
 
 <template>
   <AppHeader />
-  <ProjectsList :projects="projects" />
+  <HomePage />
 
 </template>
 
