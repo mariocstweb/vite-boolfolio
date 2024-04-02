@@ -21,9 +21,7 @@ export default {
   <div class="card">
     <div class=" d-flex justify-content-between p-2">
       <img :src="project.image" class="card-img-top" alt="...">
-      <!-- <RouterLink :to="{ name: 'ShowPage', params: { id: project.id } }" class="btn btn-primary">Vedi</RouterLink> -->
-      <RouterLink v-if="project.id" :to="{ name: 'ShowPage', params: { id: project.id } }" class="btn btn-primary">Vedi
-      </RouterLink>
+      <RouterLink :to="{ name: 'ShowPage', params: { id: project.id } }" class="btn btn-primary">Vedi</RouterLink>
     </div>
     <div class="card-body">
       <h5 class="card-title">{{ project.title }}</h5>
