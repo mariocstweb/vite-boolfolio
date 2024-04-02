@@ -9,7 +9,11 @@ export default {
 
 <template>
   <AppHeader />
-  <HomePage />
+  <!-- <HomePage /> -->
+  <main class="container p-2">
+    <RouterView />
+
+  </main>
 
 </template>
 

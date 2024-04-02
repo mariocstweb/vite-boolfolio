@@ -1,11 +1,35 @@
 <script>
+import axios from 'axios';
+import ProjectCard from '../components/ProjectCard.vue';
+const endpoint = 'http://localhost:8000/api/projects/';
+
 export default {
-  name: 'ShowPage'
+  name: 'ProjectShow',
+  components: { ProjectCard },
+  data: () => ({
+    project: null,
+    isLoading: false,
+  }),
+  methods: {
+    getProject() {
+      this.isLoading = true;
+      axios.get(endpoint + this.$route.params.id)
+        .then(res => { this.project = res.data })
+        .catch(err => { console.error(err.message) })
+        .then(() => { this.isLoading = false })
+    }
+
+  },
+  created() {
+    this.getProject();
+  },
 }
 </script>
 
 <template>
-  <h1>caio</h1>
+  <div class="container">
+    <ProjectCard v-if="!isLoading && project" :project="project" :isDetail="true" />
+  </div>
 </template>
 
-<style scoped></style>
+<style></style>
