@@ -28,6 +28,7 @@ export default {
 
 <template>
   <div class="container">
+    <AppLoader v-if="isLoading" />
     <ProjectCard v-if="!isLoading && project" :project="project" :isDetail="true" />
   </div>
 </template>
